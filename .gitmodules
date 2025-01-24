@@ -1,3 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/NullSeile/nvim-config.git
+[submodule "zebar/nullptr-bar"]
+	path = zebar/nullptr-bar
+	url = https://github.com/NullSeile/nullptr-bar.git
