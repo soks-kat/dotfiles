@@ -1,0 +1,14 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    caps ins prtsc
+)
+(deflayer default
+    @cap caps lrld
+)
+
+(defalias
+    cap (tap-hold-press 100 250 esc lctl)
+)
