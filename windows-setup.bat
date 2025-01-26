@@ -16,3 +16,5 @@ pwsh setup-venv.ps1
 pwsh setup-task.ps1
 cd "../"
 
+timeout 5
+
