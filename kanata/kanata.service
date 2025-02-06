@@ -1,0 +1,11 @@
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Type=simple
+ExecStart=/home/lia/.cargo/bin/kanata --cfg /home/lia/.config/kanata/kanata.kdb
+Restart=never
+
+[Install]
+WantedBy=default.target

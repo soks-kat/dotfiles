@@ -5,7 +5,9 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = {}
 
-config.default_prog = { "pwsh.exe" }
+-- config.default_prog = { "pwsh.exe" }
+config.default_prog = { "fish" }
+-- config.default_prog = { "sh" }
 config.color_scheme = "Kanagawa (Desat)"
 
 config.color_schemes = {
@@ -13,9 +15,9 @@ config.color_schemes = {
 }
 
 config.harfbuzz_features = { "ss02", "ss03", "ss04" }
-config.font = wezterm.font("Maple Mono")
+config.font = wezterm.font("Maple Mono NF")
 
-config.window_background_opacity = 0.9
+-- config.window_background_opacity = 0.9
 config.win32_system_backdrop = "Acrylic"
 config.window_decorations = "NONE | RESIZE"
 

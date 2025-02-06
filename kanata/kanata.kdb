@@ -2,13 +2,31 @@
     process-unmapped-keys yes
 )
 
-(defsrc
-    caps ins prtsc
+(defsrc)
+(deflayermap default
+    caps @cap
+    prtsc lrld
+    lctrl (layer-while-held mouse)
+    ins (tap-dance 200 (caps (layer-switch none)))
 )
-(deflayer default
-    @cap caps lrld
+
+(deflayermap none
+    ins (tap-dance 200 (ins (layer-switch default)))
+)
+
+(deflayermap mouse
+    a (movemouse-accel-left  10 300 1 10)
+    d (movemouse-accel-right 10 300 1 10)
+    w (movemouse-accel-up    10 300 1 10)
+    s (movemouse-accel-down  10 300 1 10)
+    j mlft ;; Left Mouse Button
+    k mmid ;; Middle Mouse Button
+    l mrgt ;; Right Mouse Button
+    q (mwheel-up 300 120)
+    e (mwheel-down 300 120)
 )
 
 (defalias
     cap (tap-hold-press 100 250 esc lctl)
 )
+
