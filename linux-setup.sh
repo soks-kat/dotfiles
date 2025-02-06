@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 function create_symlink() {
     if [ -e "$2" ]; then
         echo "Removing $2"
-        rm -r "$2"
+        rm -ri "$2"
     fi
     ln -sf "$1" "$2"
 }
