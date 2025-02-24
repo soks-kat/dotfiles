@@ -8,24 +8,20 @@ local config = {}
 -- config.default_prog = { "pwsh.exe" }
 config.default_prog = { "fish" }
 -- config.default_prog = { "sh" }
-config.color_scheme = "Kanagawa (Desat)"
+config.color_scheme = "catppuccin-mocha"
 
-config.color_schemes = {
-    ["Kanagawa (Desat)"] = require("colors.kanagawa-desat"),
-}
+-- config.harfbuzz_features = { "ss02", "ss03", "ss04" }
+-- config.font = wezterm.font("Maple Mono NF")
 
-config.harfbuzz_features = { "ss02", "ss03", "ss04" }
-config.font = wezterm.font("Maple Mono NF")
-
--- config.window_background_opacity = 0.9
-config.win32_system_backdrop = "Acrylic"
+-- config.window_background_opacity = 0.7
+-- config.win32_system_backdrop = "Acrylic"
 config.window_decorations = "NONE | RESIZE"
 
 config.window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
+    left = 3,
+    right = 3,
+    top = 3,
+    bottom = 3,
 }
 
 config.hide_tab_bar_if_only_one_tab = true
@@ -201,7 +197,7 @@ config.keys = {
         action = wezterm.action_callback(function(window, _)
             local overrides = window:get_config_overrides() or {}
             if overrides.window_background_opacity == 1.0 then
-                overrides.window_background_opacity = 0.9
+                overrides.window_background_opacity = 0.7
             else
                 overrides.window_background_opacity = 1.0
             end

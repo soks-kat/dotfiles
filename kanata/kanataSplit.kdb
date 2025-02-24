@@ -1,0 +1,111 @@
+(defcfg
+    process-unmapped-keys yes
+    block-unmapped-keys yes
+)
+
+(deflocalkeys-linux
+¡ 13
+ñ 39
+º 41
+ç 43
+´ 40
+` 26
+- 53
++ 27
+' 12
+)
+;; qwertyuiopasdfghjklzxcvbnm,.;:''?'?'
+;; (defsrc
+;;       1 2 3 4 5 6   7 8 9 0 ' ¡
+;;     tab q w e r t   u i o p , +
+;; lsft caps a s d f   j k l n . ret
+;;           lalt v spc n ralt
+;; )
+(defsrc
+  tab q w e r t   y u i o p `
+ caps a s d f g   h j k l ñ ´
+    < z x c v b   n m , . - rsft
+     lmet lalt spc ralt rctrl
+)
+(deflayer main
+  tab q w e r t   y u i o p bspc
+ @cap a s d f g   h j k l @' @ret
+ lsft z x c v b   n m , . lalt rsft
+         @acr @sym spc @sym @acl
+)
+(deflayer sym
+    _  1  2  3  4  5    6  7  8  9  0  _
+    _  @{ < @lp @[ +    - @_ @= @>  _  _
+@sySft @* @$ @~ @& @/  @\ @] @rp @# @} @sySft
+            _  _  _  _  _
+)
+(deflayer sySft
+  _ @| @@ @· @€ @%   @^ º @! @? _ _
+  _ _ _ _ _ _   _ _ _ _ _ _  
+  _ _ _ _ _ _   _ _ _ _ _ _   
+      _    _  _  _    _   
+)
+(deflayer acr
+    _ _ _ @é _ _   _ @ú @í @ó _ _   
+    _ @á _ _ _ _   _ _ _ _ _ _  
+    _ _ _ ç _ _   ñ _ _ _ _   _   
+        _    _  _  _    _   
+)
+(deflayer acl
+    _ _ _ @è _ _   _ @ù @ì @ò _ _   
+    _ @à _ _ _ _   _ _ _ _ _ _  
+    _ _ _ ç _ _   ñ _ _ _ _   _   
+        _    _  _  _    _   
+)
+(defalias
+    cap (tap-hold-press 100 400 esc lctl)
+    ret (tap-hold-press 100 400 ret rctl)
+
+    sym (layer-while-held sym)
+    sySft (layer-while-held sySft)
+
+    acr (tap-dance 200 
+            ((tap-hold 100 400 (one-shot-press 300 (layer-while-held acr)) lalt ) 
+            lrld))
+    acl (tap-hold 100 400 (one-shot-press 300 (layer-while-held acl)) lalt )
+
+    ' (fork ' S-2 (sft))
+
+    lp S-8
+    rp S-9
+    @ AG-2
+    > S-<
+    * S-+
+    $ S-4
+    ~ AG-4
+    & S-6
+    # AG-3
+    | AG-1
+    · S-3
+    € AG-e
+    % S-5
+    ^ S-`
+    ! S-1
+    ? S-'
+    } AG-ç
+    { AG-´
+    [ AG-`
+    ] AG-+
+    _ S--
+    / S-7
+    \ AG-º
+    = S-0
+
+    á (macro ´ a)
+    é (macro ´ e)
+    í (macro ´ i)
+    ó (macro ´ o)
+    ú (macro ´ u)
+
+    à (macro ` a)
+    è (macro ` e)
+    ì (macro ` i)
+    ò (macro ` o)
+    ù (macro ` u)
+)
+

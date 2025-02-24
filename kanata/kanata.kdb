@@ -1,17 +1,23 @@
 (defcfg
     process-unmapped-keys yes
 )
-
 (defsrc)
-(deflayermap default
+
+(deflayermap (epic)
     caps @cap
-    prtsc lrld
+    Equal bspc
+    m (fork m (macro C-1 250 F6 250 F6 550 left 250 enter) (lctrl))
     lctrl (layer-while-held mouse)
-    ins (tap-dance 200 (caps (layer-switch none)))
+    ins (tap-dance 200 (caps (layer-switch none) lrld))
+    prtsc (tap-dance 200 (lrld lrld-next))
+)
+
+(defalias
+    cap (tap-hold-press 100 400 esc lctl)
 )
 
 (deflayermap none
-    ins (tap-dance 200 (ins (layer-switch default)))
+    ins (tap-dance 200 (ins (layer-switch epic)))
 )
 
 (deflayermap mouse
@@ -24,9 +30,5 @@
     l mrgt ;; Right Mouse Button
     q (mwheel-up 300 120)
     e (mwheel-down 300 120)
-)
-
-(defalias
-    cap (tap-hold-press 100 250 esc lctl)
 )
 

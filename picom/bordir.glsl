@@ -68,6 +68,32 @@ float distanceToRoundedRect(vec2 position, vec2 size, float radius) {
     return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0) - radius;
 }
 
+vec3 gayCol[] = vec3[](
+    vec3(0.93, 0.13, 0.17),
+    vec3(1, 0.59, 0.15),
+    vec3(1, 1, 0.03),
+    vec3(0.03, 0.59, 0.29),
+    vec3(0.03, 0.46, 0.75),
+    vec3(0.59, 0.18, 0.58)
+);
+
+#define colors gayCol
+
+vec3 get_color( float iters){
+    float x = iters * float(colors.length() - 1);
+    x = mod(x, float(colors.length() - 1));
+
+    if (x == float(colors.length()))
+        x = 0.0;
+
+    int i = int(floor(x));
+    float t = fract(x);
+
+    // t = pow(t, 3.);
+    t = t*t*(3.0-2.0*t);
+    return mix(colors[i], colors[i+1], t);
+}
+
 vec4 add_rounded_corners(
     vec4 win_color,
     vec2 tex_coord,
@@ -81,6 +107,8 @@ vec4 add_rounded_corners(
                     fract(time * 0.001 + dot(tex_coord / vec2(1920, 1080), vec2(1))),
                     1., 1.
                 )), 1);
+
+    // vec4 border_color = get_color(time*0.001 + uv);
 
     // If we're far from corners, we just pass window texels through
     vec2 corner_distance = min(abs(tex_coord), abs(tex_size - 1 - tex_coord));
