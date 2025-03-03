@@ -7,13 +7,13 @@ set $win Mod4
 # is used in the bar {} block below.
 font pango:monospace 10
 gaps inner 10
-gaps top 40
+gaps top 46
 
 # exec --no-startup-id gpick
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id /usr/bin/unclutter -b
 
-exec --no-startup-id sudo mount /dev/nvme0n1p3 /media/lia/windows/
+exec --no-startup-id sudo mount /dev/nvme0n1p3 /media/kai/windows/
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -42,7 +42,7 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 # tiling_drag modifier titlebar
 
-for_window [class="regolith-control-center"] floating enable
+for_window [class="regolith-control-center"] floating disable
 
 bindsym $mod+i exec regolith-control-center
 bindsym $mod+w exec regolith-control-center wifi
@@ -165,11 +165,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
+# window border size
 default_border pixel 2
 
-client.focused #a576db #a576db #ffffff #a576db #a576db
-client.unfocused #181825 #181825 #b4befe #181825 #181825
+#              tab_bor tab_fil text    rhs_w_b window_border
+client.focused #5d8cda #5d8cda #ffffff #a177d1 #a177d1
+client.unfocused #a177d1 #181825 #b4befe #181825 #181825
 # for_window [class="^.*"] border pixel 3
 # for_window [all] border pixel 2
 # smart_borders on

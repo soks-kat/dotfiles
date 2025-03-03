@@ -15,56 +15,65 @@
     ¡ 13
 )
 
+;; (defsrc
+;;      tab  q  w  e  r  t      y  u  i  o  p  `       prtsc
+;;     caps  a  s  d  f  g      h  j  k  l  ñ  ´
+;;   lsft <  z  x  c  v  b      n  m  ,  .  -  rsft
+;;           lmet  lalt esc  spc  ralt  rctrl
+;; )
+
 (defsrc
-     tab  q  w  e  r  t      y  u  i  o  p  `       prtsc
-    caps  a  s  d  f  g      h  j  k  l  ñ  ´
-  lsft <  z  x  c  v  b      n  m  ,  .  -  rsft
-             lmet  lalt  spc  ralt  rctrl
+       º  1  2  4  5  6      7  8  9  0  '  ¡          prtsc
+     tab  q  w  e  r  t      u  i  o  p  `  +    
+esc caps  a  s  d  f  g      j  k  l  ñ  ´  ret
+               x  c  v        n  m  ,            
 )
+
 (deflayer main
-    tab   q  w  e  r  t      y  u  i  o  p  bspc    (tap-dance 200 (lrld lrld-next))
-    @ctl  a  s  d  f  g      h  j  k  l @'  @ret
-  _ lsft  z  x  c  v  b      n  m  ,  .  -  lsft
-             @acl  @sym  spc  @sym  @acr
+     tab   q  w  e  r  t      y  u  i  o  p  bspc    (tap-dance 200 (lrld lrld-next))
+     @ctl  a  s  d  f  g      h  j  k  l @'  @ret
+   _ lsft  z  x  c  v  b      n  m  ,  .  -  lsft
+           @acl  lsft @sym  @sym  spc  @acr
 )
 
 (deflayer symbol
-      @\ @! @@ @# @$ @%     @&  7  8  9 @?  del     _
-      @` @< @[ @{ @⟮ @=     @/  4  5  6  +  .
-_ @sSym @> @^ @· @~ @|     @*  1  2  3  0  @sSym
-                _    _    _    _    _
+          @\ @! @@ @# @$ @%     @&  7  8  9 @?  del     _
+          @` @< @[ @{ @⟮ @=     @/  4  5  6  +  .
+ @sSym @sSym @> @^ @· @~ @|     @*  1  2  3  0  @sSym
+                _  @sSym   _    _    _    _
 )
 
 (deflayer symbol-shift
        _  ¡  _ @€  _  _      _  _  _  _ @¿  _       _
        _  _ @] @} @⟯  _      ◀  ▼  ▲  ▶  _  _
     _  _  _  _  _  _  _      _  _  _  _  _  _
-                _    _    _    _    _
+                _    _  _    _    _    _
 )
 (deflayer accent-left
        _  _  _ @è  _  _      _ @ù @ì @ò  _  _       _
        _ @à  _  _  _  _      _  _  _  _  _  _
     _  _  _  _  ç  _  _      ñ  _  _  _  _  _
-                _    _    _    _    _
+                _    _  _  _    _    _
 )
 (deflayer accent-right
        _  _  _ @é  _  _      _ @ú @í @ó  _  _       _
        _ @á  _  _  _  _      _  _  _  _  _  _
     _  _  _  _  ç  _  _      ñ  _  _  _  _  _
-                _    _    _    _    _
+                _    _  _  _    _    _
 )
 (deflayer accent-dieresis
        _  _  _  _  _  _      _ @ü @ï  _  _  _       _
        _  _  _  _  _  _      _  _  _  _  _  _
     _  _  _  _  _  _  _      _  _  _  _  _  _
-             _    @fn    _     @fn    _
+             _    _  _    _     _    _
 )
-(deflayer function
-       _  _  _  _  _  _      _  _  _  _  _  _       _
-       _  _  _  _  _  _      _  _  _  _  _  _
-    _  _  _  _  _  _  _      _  _  _  _  _  _
-             _     _     _      _     _
-)
+
+;; (deflayer function
+;;        _  _  _  _  _  _      _  _  _  _  _  _       _
+;;        _  _  _  _  _  _      _  _  _  _  _  _
+;;     _  _  _  _  _  _  _      _  _  _  _  _  _
+;;              _   _    _     _      _     _
+;; )
 
 (defalias
     ctl (tap-hold-press 100 250 esc lctl)
@@ -75,7 +84,7 @@ _ @sSym @> @^ @· @~ @|     @*  1  2  3  0  @sSym
     sSym (layer-while-held symbol-shift)
     acr (tap-hold 100 300 (one-shot-press 300 (layer-while-held accent-right)) lalt)
     acl (tap-hold 100 300 (one-shot-press 300 (layer-while-held accent-left)) lalt)
-    fn (layer-while-held function)
+    ;; fn (layer-while-held function)
 
     '  (fork ' S-2 (sft))
     !  S-1
