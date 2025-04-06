@@ -23,4 +23,5 @@ systemctl --user enable kanata
 create_symlink wezterm ~/.config/wezterm
 create_symlink polybar ~/.config/polybar
 create_symlink picom ~/.config/picom
+create_symlink rofi ~/.config/rofi
 
