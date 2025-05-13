@@ -7,3 +7,6 @@
 [submodule "himawari-wallpaper"]
 	path = himawari-wallpaper
 	url = https://github.com/NullSeile/himawari-wallpaper.git
+[submodule "kanata/kanata-configs"]
+	path = kanata/kanata-configs
+	url = https://github.com/NullSeile/kanata-configs.git
