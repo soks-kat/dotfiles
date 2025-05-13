@@ -4,7 +4,7 @@ Documentation=https://github.com/jtroo/kanata
 
 [Service]
 Type=simple
-ExecStart=kanata -c /home/kai/.config/kanata/kanataKai.kdb -c /home/kai/.config/kanata/kanata.kdb
+ExecStart=kanata -c /home/kai/.config/kanata/kanata-configs/Kai.kdb -c /home/kai/.config/kanata/kanata.kdb
 
 Restart=never
 
