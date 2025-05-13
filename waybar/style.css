@@ -1,4 +1,4 @@
-@define-color background #1e1e2e;
+@define-color background rgba(30, 30, 46, 0.9);
 @define-color text-dark #181825;
 @define-color text-color #cdd6f4;
 @define-color primary #cba6f7;
@@ -32,7 +32,8 @@
     font-size: 1em;
     /*font-weight: 400;*/
     color: @text-color;
-    background: transparent;
+    background: @trans;
+    background-position: 10em 50%;
 }
 
 #waybar > box > box > widget:not(:first-child) > * {

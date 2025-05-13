@@ -60,6 +60,7 @@ arch = [
     "vim",
     "kanata-bin",
     "imagemagick",
+    "battery-notifier",
     # "ventoy-bin",
 
     # Apps
@@ -130,6 +131,11 @@ arch = [
     "gtk-engine-murrine",
     "kanagawa-gtk-theme-git",
     "kanagawa-icon-theme-git",
+
+    #python
+    "less",
+    "python-scikit-learn",
+    "python-tqdm"
 ]
 cargo = ["lolcrab"]
 
